@@ -1,7 +1,9 @@
 /* XUSUO交换机 · 站点数据
  * 新增 / 修改公益站只需要改这个文件，页面会自动渲染。
- * signupBonus / dailyBonus 为展示文本，可写 "$175" 或 "100" 等。
+ * signupBonus / dailyBonus 为展示文本；signupNum / dailyNum 为排序用数值。
  */
+const SITE_UPDATED_AT = "2026-09-04";
+
 const STATIONS = [
   {
     name: "AgentRouter",
@@ -9,7 +11,9 @@ const STATIONS = [
     half: false,
     signupLabel: "注册即得",
     signupBonus: "$175",
+    signupNum: 175,
     dailyBonus: "$25",
+    dailyNum: 25,
     models: ["GPT-5.6 SoL", "Claude Opus 4.8", "Claude Opus 5", "DeepSeek v4-f", "GLM-5.3"],
     signupReq: "GitHub 注册时间早于 2025.12.03",
     note: "非常夯，实用，作者一直在用",
@@ -21,7 +25,9 @@ const STATIONS = [
     half: false,
     signupLabel: "注册即得",
     signupBonus: "$90",
+    signupNum: 90,
     dailyBonus: "$20",
+    dailyNum: 20,
     models: ["Claude Opus 5"],
     signupReq: "有 GitHub 年限限制（注册满一年）",
     note: "使用起来很不错，很耐用，消耗还行",
@@ -33,7 +39,9 @@ const STATIONS = [
     half: false,
     signupLabel: "注册即得",
     signupBonus: "$70",
+    signupNum: 70,
     dailyBonus: "$10",
+    dailyNum: 10,
     models: ["Claude Opus 5"],
     signupReq: "GitHub 没有时间限制",
     note: "使用一般，跟 tabiai 应该属于一家",
@@ -45,7 +53,9 @@ const STATIONS = [
     half: false,
     signupLabel: "注册即得",
     signupBonus: "$120",
+    signupNum: 120,
     dailyBonus: "$10",
+    dailyNum: 10,
     models: ["Claude Opus 5"],
     signupReq: "GitHub 没有时间限制",
     note: "使用一般，但网传有黑历史，自行斟酌",
@@ -57,7 +67,9 @@ const STATIONS = [
     half: false,
     signupLabel: "注册即得",
     signupBonus: "$75",
+    signupNum: 75,
     dailyBonus: "$20",
+    dailyNum: 20,
     models: ["Claude Opus 5"],
     signupReq: "GitHub 注册时间超过一年以上",
     note: "只有 Claude 可用，使用感觉一般",
@@ -69,7 +81,9 @@ const STATIONS = [
     half: false,
     signupLabel: "邀请码注册领",
     signupBonus: "$200",
+    signupNum: 200,
     dailyBonus: "$20",
+    dailyNum: 20,
     models: [
       "deepseek-v4-flash",
       "deepseek-v4-flash-vision-exp",
@@ -89,7 +103,9 @@ const STATIONS = [
     half: true,
     signupLabel: "注册即得",
     signupBonus: "100",
+    signupNum: 100,
     dailyBonus: "6~20",
+    dailyNum: 13,
     bonusNote: "通过邀请码进入再得 100",
     models: ["289 个供应商", "模型很多不一一列举"],
     signupReq: "任意 QQ 邮箱均可以注册",

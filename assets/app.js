@@ -2,6 +2,11 @@
 (function () {
   "use strict";
 
+  var reduceMotion = false;
+  try {
+    reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  } catch (e) {}
+
   /* ---------- 主题切换 ---------- */
   var themeBtn = document.getElementById("themeToggle");
   themeBtn.addEventListener("click", function () {
@@ -52,14 +57,15 @@
     };
   }
 
-  var state = { filter: "all", q: "" };
+  var state = { filter: "all", q: "", sort: "default" };
 
   var chipsBox = document.getElementById("chips");
   FILTERS.forEach(function (f) {
+    var n = STATIONS.filter(f.test).length;
     var b = document.createElement("button");
     b.type = "button";
     b.className = "chip" + (f.key === "all" ? " active" : "");
-    b.textContent = f.label;
+    b.innerHTML = f.label + ' <span class="n">' + n + "</span>";
     b.dataset.key = f.key;
     b.addEventListener("click", function () {
       state.filter = f.key;
@@ -71,8 +77,14 @@
     chipsBox.appendChild(b);
   });
 
-  document.getElementById("searchInput").addEventListener("input", function (e) {
+  var searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("input", function (e) {
     state.q = e.target.value.trim().toLowerCase();
+    render();
+  });
+
+  document.getElementById("sortSelect").addEventListener("change", function (e) {
+    state.sort = e.target.value;
     render();
   });
 
@@ -87,16 +99,35 @@
     });
   }
 
-  function cardHTML(s) {
+  function tagClass(m) {
+    if (/claude/i.test(m)) return "tag-claude";
+    if (/gpt/i.test(m)) return "tag-gpt";
+    if (/deepseek/i.test(m)) return "tag-deepseek";
+    if (/glm/i.test(m)) return "tag-glm";
+    if (/grok|kimi|mimo|minimax/i.test(m)) return "tag-other";
+    return "tag-misc";
+  }
+
+  function avatarClass(name) {
+    var h = 0;
+    for (var i = 0; i < name.length; i++) h += name.charCodeAt(i);
+    return "av-" + (h % 7);
+  }
+
+  function cardHTML(s, i) {
     var tags = s.models.map(function (m) {
-      return '<span class="tag">' + esc(m) + "</span>";
+      return '<span class="tag ' + tagClass(m) + '">' + esc(m) + "</span>";
     }).join("");
+    var first = esc(s.name.charAt(0).toUpperCase());
     return (
-      '<article class="card">' +
+      '<article class="card" style="animation-delay:' + (i * 45) + 'ms">' +
         '<div class="card-head">' +
-          "<div>" +
-            '<h3 class="card-name">' + esc(s.name) + "</h3>" +
-            '<span class="card-domain">' + esc(s.domain) + "</span>" +
+          '<div class="card-id">' +
+            '<span class="avatar ' + avatarClass(s.name) + '" aria-hidden="true">' + first + "</span>" +
+            "<div>" +
+              '<h3 class="card-name">' + esc(s.name) + "</h3>" +
+              '<span class="card-domain">' + esc(s.domain) + "</span>" +
+            "</div>" +
           "</div>" +
           '<div class="card-badges">' +
             (s.half ? '<span class="badge half">半公益</span>' : "") +
@@ -127,15 +158,25 @@
     );
   }
 
-  function render() {
+  function currentList() {
     var f = FILTERS.find(function (x) { return x.key === state.filter; }) || FILTERS[0];
-    var list = STATIONS.filter(function (s) { return f.test(s); });
+    var list = STATIONS.filter(f.test);
     if (state.q) {
       list = list.filter(function (s) {
         var hay = (s.name + " " + s.domain + " " + s.models.join(" ")).toLowerCase();
         return hay.indexOf(state.q) !== -1;
       });
     }
+    if (state.sort === "signup") {
+      list = list.slice().sort(function (a, b) { return (b.signupNum || 0) - (a.signupNum || 0); });
+    } else if (state.sort === "daily") {
+      list = list.slice().sort(function (a, b) { return (b.dailyNum || 0) - (a.dailyNum || 0); });
+    }
+    return list;
+  }
+
+  function render() {
+    var list = currentList();
     cardsBox.innerHTML = list.map(cardHTML).join("");
     countBox.textContent = "共 " + list.length + " 个";
     emptyBox.hidden = list.length !== 0;
@@ -171,23 +212,101 @@
     document.body.removeChild(ta);
   }
 
+  /* ---------- 清除筛选 ---------- */
+  document.getElementById("clearFilters").addEventListener("click", function () {
+    state = { filter: "all", q: "", sort: state.sort };
+    searchInput.value = "";
+    chipsBox.querySelectorAll(".chip").forEach(function (c) {
+      c.classList.toggle("active", c.dataset.key === "all");
+    });
+    render();
+  });
+
   /* ---------- 渲染工具卡片 ---------- */
   var toolBox = document.getElementById("toolCards");
-  toolBox.innerHTML = TOOLS.map(function (t) {
+  toolBox.innerHTML = TOOLS.map(function (t, i) {
     var link = t.url
       ? '<a class="tool-link" href="' + esc(t.url) + '" target="_blank" rel="noopener noreferrer">前往查看 ↗</a>'
       : '<span class="tool-link disabled">🚧 开发中，敬请期待</span>';
     return (
-      '<div class="tool-card">' +
+      '<div class="tool-card" style="animation-delay:' + (i * 45) + 'ms">' +
         '<div class="tool-head"><h3>' + esc(t.name) + '</h3><span class="badge">' + esc(t.tag) + "</span></div>" +
         "<p>" + esc(t.desc) + "</p>" + link +
       "</div>"
     );
   }).join("");
 
+  /* ---------- 回到顶部 + 导航滚动阴影 + 滚动高亮 ---------- */
+  var nav = document.getElementById("nav");
+  var backTop = document.getElementById("backTop");
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      nav.classList.toggle("scrolled", window.scrollY > 8);
+      backTop.classList.toggle("show", window.scrollY > 600);
+      ticking = false;
+    });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  backTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+
+  var spyLinks = document.querySelectorAll("#navLinks a[data-spy]");
+  if ("IntersectionObserver" in window) {
+    var spyMap = {};
+    spyLinks.forEach(function (a) { spyMap[a.dataset.spy] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var link = spyMap[en.target.id];
+        if (!link) return;
+        if (en.isIntersecting) {
+          spyLinks.forEach(function (a) { a.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    ["stations", "tools", "risks"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  }
+
+  /* ---------- 统计数字滚动 ---------- */
+  function countUp(el) {
+    var target = parseInt(el.dataset.count, 10);
+    var prefix = el.dataset.prefix || "";
+    var suffix = el.dataset.suffix || "";
+    if (reduceMotion || !isFinite(target)) {
+      el.textContent = prefix + target + suffix;
+      return;
+    }
+    var start = null;
+    var dur = 900;
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    el.textContent = prefix + "0" + suffix;
+    requestAnimationFrame(step);
+  }
+  document.querySelectorAll(".stat-num[data-count]").forEach(countUp);
+
   /* ---------- 其它 ---------- */
-  document.getElementById("statCount").textContent = STATIONS.length;
   document.getElementById("year").textContent = new Date().getFullYear();
+  if (typeof SITE_UPDATED_AT === "string" && SITE_UPDATED_AT) {
+    var up = document.getElementById("updatedAt");
+    up.textContent = "数据更新于 " + SITE_UPDATED_AT;
+    up.hidden = false;
+    document.getElementById("footDate").textContent = SITE_UPDATED_AT;
+  }
 
   render();
 })();
