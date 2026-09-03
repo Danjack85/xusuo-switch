@@ -1,0 +1,6 @@
+# 本地辅助文件，不入库
+.mimosa/
+.ref/
+*.log
+.DS_Store
+Thumbs.db
