@@ -28,6 +28,26 @@
     } catch (e) {}
   });
 
+  /* ---------- 触摸 / 点击涟漪反馈 ---------- */
+  document.addEventListener("pointerdown", function (e) {
+    if (reduceMotion) return;
+    var host = e.target.closest(".btn, .chip, .btn-copy, .notice-btn, .theme-toggle, .back-top");
+    if (!host) return;
+    var rect = host.getBoundingClientRect();
+    var d = Math.max(rect.width, rect.height) * 2.2;
+    var cx = typeof e.clientX === "number" && (e.clientX || e.clientY) ? e.clientX : rect.left + rect.width / 2;
+    var cy = typeof e.clientY === "number" && (e.clientX || e.clientY) ? e.clientY : rect.top + rect.height / 2;
+    var old = host.querySelector(".ripple");
+    if (old) old.remove();
+    var s = document.createElement("span");
+    s.className = "ripple";
+    s.style.width = s.style.height = d + "px";
+    s.style.left = cx - rect.left - d / 2 + "px";
+    s.style.top = cy - rect.top - d / 2 + "px";
+    host.appendChild(s);
+    setTimeout(function () { s.remove(); }, 700);
+  }, { passive: true });
+
   /* ---------- Toast ---------- */
   var toast = document.getElementById("toast");
   var toastTimer = null;
@@ -188,15 +208,27 @@
     var url = btn.dataset.url;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(
-        function () { showToast("已复制链接"); },
-        function () { fallbackCopy(url); }
+        function () { markCopied(btn); showToast("已复制链接"); },
+        function () { fallbackCopy(url, btn); }
       );
     } else {
-      fallbackCopy(url);
+      fallbackCopy(url, btn);
     }
   });
 
-  function fallbackCopy(text) {
+  function markCopied(btn) {
+    if (btn.dataset.origHtml) return;
+    btn.dataset.origHtml = btn.innerHTML;
+    btn.classList.add("ok");
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+    setTimeout(function () {
+      btn.classList.remove("ok");
+      btn.innerHTML = btn.dataset.origHtml;
+      delete btn.dataset.origHtml;
+    }, 1400);
+  }
+
+  function fallbackCopy(text, btn) {
     var ta = document.createElement("textarea");
     ta.value = text;
     ta.style.position = "fixed";
@@ -205,6 +237,7 @@
     ta.select();
     try {
       document.execCommand("copy");
+      if (btn) markCopied(btn);
       showToast("已复制链接");
     } catch (err) {
       showToast("复制失败，请手动复制");
