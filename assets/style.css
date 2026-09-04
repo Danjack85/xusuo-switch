@@ -533,6 +533,10 @@ html.dark .orb-c { background: rgba(245, 158, 11, 0.16); }
 .badge.aff { color: var(--accent-strong); background: var(--accent-soft); border-color: transparent; }
 .badge.half { color: var(--amber); background: var(--amber-soft); border-color: transparent; }
 
+.stars { font-size: 13px; line-height: 1.1; letter-spacing: 1.5px; white-space: nowrap; }
+.stars b { color: var(--amber); font-weight: 400; }
+.stars i { color: var(--text-3); font-style: normal; opacity: 0.6; }
+
 .bonus-row { display: flex; gap: 10px; }
 
 .bonus {
@@ -588,6 +592,15 @@ html.dark .tag-misc { background: rgba(255, 255, 255, 0.05); }
 .facts dt { flex-shrink: 0; color: var(--text-3); }
 .facts dt::after { content: "："; }
 .facts dd { margin: 0; color: var(--text-2); }
+
+.facts .warn-row dt { color: var(--amber); font-weight: 600; }
+.facts .warn-row dd {
+  color: var(--amber);
+  background: var(--amber-soft);
+  border-radius: 6px;
+  padding: 1px 8px;
+  font-weight: 500;
+}
 
 .card-foot {
   margin-top: auto;

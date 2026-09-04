@@ -1,6 +1,7 @@
 /* XUSUO交换机 · 站点数据
  * 新增 / 修改公益站只需要改这个文件，页面会自动渲染。
  * signupBonus / dailyBonus 为展示文本；signupNum / dailyNum 为排序用数值。
+ * stars 为推荐指数（1~5，整星展示）；warning 为醒目注意项（可选）。
  */
 const SITE_UPDATED_AT = "2026-09-04";
 
@@ -9,6 +10,7 @@ const STATIONS = [
     name: "AgentRouter",
     domain: "agentrouter.org",
     half: false,
+    stars: 5,
     signupLabel: "注册即得",
     signupBonus: "$175",
     signupNum: 175,
@@ -23,6 +25,7 @@ const STATIONS = [
     name: "justwoker",
     domain: "api.justwoker.icu",
     half: false,
+    stars: 4,
     signupLabel: "注册即得",
     signupBonus: "$90",
     signupNum: 90,
@@ -37,6 +40,7 @@ const STATIONS = [
     name: "GoRouter",
     domain: "gorouter.app",
     half: false,
+    stars: 3,
     signupLabel: "注册即得",
     signupBonus: "$70",
     signupNum: 70,
@@ -51,6 +55,7 @@ const STATIONS = [
     name: "tabiai",
     domain: "tabitoken.com",
     half: false,
+    stars: 2,
     signupLabel: "注册即得",
     signupBonus: "$120",
     signupNum: 120,
@@ -65,6 +70,7 @@ const STATIONS = [
     name: "KKtoken",
     domain: "kktoken.cc",
     half: false,
+    stars: 3,
     signupLabel: "注册即得",
     signupBonus: "$75",
     signupNum: 75,
@@ -79,6 +85,8 @@ const STATIONS = [
     name: "Seekai",
     domain: "seekai.cc",
     half: false,
+    stars: 1,
+    warning: "可能无法调用工具",
     signupLabel: "邀请码注册领",
     signupBonus: "$200",
     signupNum: 200,
@@ -101,6 +109,7 @@ const STATIONS = [
     name: "哈基米",
     domain: "api.gemai.cc",
     half: true,
+    stars: 3,
     signupLabel: "注册即得",
     signupBonus: "100",
     signupNum: 100,

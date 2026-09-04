@@ -139,6 +139,10 @@
       return '<span class="tag ' + tagClass(m) + '">' + esc(m) + "</span>";
     }).join("");
     var first = esc(s.name.charAt(0).toUpperCase());
+    var n = Math.max(0, Math.min(5, s.stars || 0));
+    var stars = '<span class="stars" title="推荐指数 ' + n + " / 5" +
+      '" aria-label="推荐指数 ' + n + " / 5" + '"><b>' + "★".repeat(n) + "</b>" +
+      '<i>' + "☆".repeat(5 - n) + "</i></span>";
     return (
       '<article class="card" style="animation-delay:' + (i * 45) + 'ms">' +
         '<div class="card-head">' +
@@ -150,6 +154,7 @@
             "</div>" +
           "</div>" +
           '<div class="card-badges">' +
+            stars +
             (s.half ? '<span class="badge half">半公益</span>' : "") +
             '<span class="badge aff">含邀请参数</span>' +
           "</div>" +
@@ -165,6 +170,7 @@
         "</div>" +
         '<div class="tags">' + tags + "</div>" +
         '<dl class="facts">' +
+          (s.warning ? '<div class="warn-row"><dt>注意</dt><dd>' + esc(s.warning) + "</dd></div>" : "") +
           "<div><dt>注册要求</dt><dd>" + esc(s.signupReq) + "</dd></div>" +
           "<div><dt>使用反馈</dt><dd>" + esc(s.note) + "</dd></div>" +
         "</dl>" +
