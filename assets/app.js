@@ -170,7 +170,7 @@
         "</div>" +
         '<div class="tags">' + tags + "</div>" +
         '<dl class="facts">' +
-          (s.warning ? '<div class="warn-row"><dt>注意</dt><dd>' + esc(s.warning) + "</dd></div>" : "") +
+          (s.warning ? '<div class="warn-row' + (s.down ? " danger" : "") + '"><dt>' + (s.down ? "警告" : "注意") + "</dt><dd>" + esc(s.warning) + "</dd></div>" : "") +
           "<div><dt>注册要求</dt><dd>" + esc(s.signupReq) + "</dd></div>" +
           "<div><dt>使用反馈</dt><dd>" + esc(s.note) + "</dd></div>" +
         "</dl>" +

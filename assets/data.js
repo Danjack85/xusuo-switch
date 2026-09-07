@@ -3,7 +3,7 @@
  * signupBonus / dailyBonus 为展示文本；signupNum / dailyNum 为排序用数值。
  * stars 为推荐指数（1~5，整星展示）；warning 为醒目注意项（可选）。
  */
-const SITE_UPDATED_AT = "2026-09-04";
+const SITE_UPDATED_AT = "2026-09-07";
 
 const STATIONS = [
   {
@@ -26,6 +26,8 @@ const STATIONS = [
     domain: "api.justwoker.icu",
     half: false,
     stars: 4,
+    down: true,
+    warning: "暂时无模型，可能已跑路",
     signupLabel: "注册即得",
     signupBonus: "$90",
     signupNum: 90,
@@ -41,6 +43,8 @@ const STATIONS = [
     domain: "gorouter.app",
     half: false,
     stars: 3,
+    down: true,
+    warning: "暂时无模型，可能已跑路",
     signupLabel: "注册即得",
     signupBonus: "$70",
     signupNum: 70,
@@ -56,6 +60,8 @@ const STATIONS = [
     domain: "tabitoken.com",
     half: false,
     stars: 2,
+    down: true,
+    warning: "暂时无模型，可能已跑路",
     signupLabel: "注册即得",
     signupBonus: "$120",
     signupNum: 120,
@@ -71,6 +77,8 @@ const STATIONS = [
     domain: "kktoken.cc",
     half: false,
     stars: 3,
+    down: true,
+    warning: "暂时无模型，可能已跑路",
     signupLabel: "注册即得",
     signupBonus: "$75",
     signupNum: 75,

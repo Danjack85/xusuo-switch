@@ -602,6 +602,15 @@ html.dark .tag-misc { background: rgba(255, 255, 255, 0.05); }
   font-weight: 500;
 }
 
+.facts .warn-row.danger dt { color: #dc2626; }
+.facts .warn-row.danger dd {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+html.dark .facts .warn-row.danger dt,
+html.dark .facts .warn-row.danger dd { color: #f87171; }
+html.dark .facts .warn-row.danger dd { background: rgba(248, 113, 113, 0.13); }
+
 .card-foot {
   margin-top: auto;
   padding-top: 4px;
