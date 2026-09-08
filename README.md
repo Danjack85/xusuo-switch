@@ -32,6 +32,32 @@ python -m http.server 8080
 
 状态含义：`online` 接口正常响应；`blocked` 被防护墙拦截无法验证；`unreachable` 超时/连接失败（连续 ≥4 次显示「多次不可达」）。任一探测网络 12 小时内见过在线则延续在线结论（AgentRouter 主站对海外探测入口返回着陆页，由备用入口 `ps.air-outer.com` 探测）。手动触发：仓库 Actions 页运行「抓取公益站状态」。本地手动抓取：`python scripts/fetch_status.py > live.tmp.json && mv live.tmp.json assets/live.json`（注意不能直接重定向覆盖 live.json，脚本要先读它做合并）。
 
+### 全站实时模型（需令牌的站点）
+
+各站抓取顺序：公开报价 `/api/pricing` → 带令牌报价 → OpenAI 兼容 `/v1/models`。公开接口即可拿到的：AgentRouter（经镜像入口）、哈基米。其余站点需配置令牌：
+
+1. 在对应站点控制台创建 API 令牌（sk- 开头，只读额度即可，不要充值）；
+2. 在本仓库 Settings → Secrets and variables → Actions 添加对应 Secret：
+
+| Secret 名 | 站点 |
+|---|---|
+| `XUSUO_TOKEN_AGENTROUTER` | AgentRouter |
+| `XUSUO_TOKEN_JUSTWOKER` | justwoker |
+| `XUSUO_TOKEN_GOROUTER` | GoRouter |
+| `XUSUO_TOKEN_TABIAI` | tabiai |
+| `XUSUO_TOKEN_KKTOKEN` | KKtoken |
+| `XUSUO_TOKEN_SEEKAI` | Seekai |
+| `XUSUO_TOKEN_HAJIMI` | 哈基米 |
+
+3. 命令行批量配置（在本仓库目录执行）：
+
+```bash
+gh secret set XUSUO_TOKEN_JUSTWOKER -R Danjack85/xusuo-switch
+# 按提示粘贴令牌，回车；其余站点同理
+```
+
+配置后下一次抓取（每 3 小时，或手动触发）即可在卡片上看到该站实时模型列表。令牌只进 GitHub Secrets，不会出现在代码与页面中。
+
 ## 修改内容
 
 所有站点与工具数据都集中在 [`assets/data.js`](assets/data.js)，增删改站点只需要编辑这个文件，页面会自动渲染。
