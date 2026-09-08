@@ -42,6 +42,7 @@ const STATIONS = [
   },
   {
     name: "GoRouter",
+    stockpile: true,
     domain: "gorouter.app",
     tokenEnv: "XUSUO_TOKEN_GOROUTER",
     half: false,
@@ -58,6 +59,7 @@ const STATIONS = [
   },
   {
     name: "tabiai",
+    stockpile: true,
     domain: "tabitoken.com",
     tokenEnv: "XUSUO_TOKEN_TABIAI",
     half: false,
@@ -74,6 +76,7 @@ const STATIONS = [
   },
   {
     name: "KKtoken",
+    stockpile: true,
     domain: "kktoken.cc",
     tokenEnv: "XUSUO_TOKEN_KKTOKEN",
     half: false,

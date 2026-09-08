@@ -361,6 +361,7 @@
     document.querySelectorAll("#cards article").forEach(function (cardEl) {
       var name = cardEl.querySelector(".card-name").textContent;
       var e = live.stations[name];
+      var s = STATIONS.find(function (x) { return x.name === name; }) || {};
       var badges = cardEl.querySelector(".card-badges");
       if (!badges) return;
       var oldBadge = cardEl.querySelector(".badge.live");
@@ -395,7 +396,8 @@
         tags.innerHTML = html + '<span class="live-src">⚡ 实时抓取</span>';
         cardEl.classList.remove("no-models");
       } else {
-        tags.innerHTML = '<span class="tag tag-misc">无模型</span>' +
+        var stockpile = s && s.stockpile ? '<span class="tag tag-gpt" title="暂无可用模型，但注册签到可囤额度">可以签到囤额度</span>' : "";
+        tags.innerHTML = '<span class="tag tag-misc">无模型</span>' + stockpile +
           '<span class="live-src">以实时抓取为准</span>';
         cardEl.classList.add("no-models");
       }

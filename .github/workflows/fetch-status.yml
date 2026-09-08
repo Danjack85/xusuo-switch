@@ -2,7 +2,9 @@ name: 抓取公益站状态
 
 on:
   schedule:
-    - cron: "13 * * * *" # 每小时（UTC）
+    # 每小时的 7、32、57 分各跑一次（cron 无法精确表达 25 分钟间隔，
+    # 该组合为最接近的均匀方案：25/25/10 分钟循环）
+    - cron: "7,32,57 * * * *"
   workflow_dispatch:
 
 permissions:
