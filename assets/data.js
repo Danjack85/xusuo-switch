@@ -9,6 +9,7 @@ const STATIONS = [
   {
     name: "AgentRouter",
     domain: "agentrouter.org",
+    probeDomain: "ps.air-outer.com",
     half: false,
     stars: 5,
     signupLabel: "注册即得",

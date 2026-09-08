@@ -74,12 +74,23 @@ def fetch(url, timeout=15):
 
 
 def load_stations():
-    """从 data.js 按顺序提取 (name, domain)。"""
+    """从 data.js 按顺序提取 (name, domain, probeDomain)。
+
+    probeDomain 为可选的备用探测入口（如被防护墙拦截的主站镜像），
+    未提供时回退到 domain 本身。
+    """
     src = DATA_FILE.read_text(encoding="utf-8")
-    pairs = re.findall(r'name:\s*"([^"]+)",\s*\n\s*domain:\s*"([^"]+)"', src)
+    pairs = re.findall(
+        r'name:\s*"([^"]+)",\s*\n\s*domain:\s*"([^"]+)"'
+        r'(?:,\s*\n\s*probeDomain:\s*"([^"]+)")?',
+        src,
+    )
     if not pairs:
         raise SystemExit("未能从 assets/data.js 解析出站点清单")
-    return [{"name": n, "domain": d} for n, d in pairs]
+    return [
+        {"name": n, "domain": d, "probe": p or d}
+        for n, d, p in pairs
+    ]
 
 
 def load_previous():
@@ -142,10 +153,10 @@ def main():
     now = datetime.datetime.now(TZ)
     out = {}
     for st in load_stations():
-        r = probe(st["domain"])
+        r = probe(st["probe"])
         log(
-            "%-14s %-12s models=%-4s %s"
-            % (st["name"], r["status"], len(r["models"] or []), r["note"])
+            "%-14s %-12s via=%-18s models=%-4s %s"
+            % (st["name"], r["status"], st["probe"], len(r["models"] or []), r["note"])
         )
         if seed_only and r["status"] != "online":
             continue
