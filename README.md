@@ -30,7 +30,7 @@ python -m http.server 8080
 2. 结果写入 `assets/live.json` 并自动提交，Pages 随之更新；
 3. 前端加载 `live.json`，在卡片上叠加「在线 / 暂不可达 / 多次不可达 / 拦截」实时徽章；抓到公开模型报价时以实时列表替换静态标签。
 
-状态含义：`online` 接口正常响应；`blocked` 被防护墙拦截无法验证；`unreachable` 超时/连接失败（连续 ≥4 次显示「多次不可达」）。手动触发：仓库 Actions 页运行「抓取公益站状态」。本地手动抓取：`python scripts/fetch_status.py > assets/live.json`。
+状态含义：`online` 接口正常响应；`blocked` 被防护墙拦截无法验证；`unreachable` 超时/连接失败（连续 ≥4 次显示「多次不可达」）。任一探测网络 12 小时内见过在线则延续在线结论（AgentRouter 主站对海外探测入口返回着陆页，由备用入口 `ps.air-outer.com` 探测）。手动触发：仓库 Actions 页运行「抓取公益站状态」。本地手动抓取：`python scripts/fetch_status.py > live.tmp.json && mv live.tmp.json assets/live.json`（注意不能直接重定向覆盖 live.json，脚本要先读它做合并）。
 
 ## 修改内容
 

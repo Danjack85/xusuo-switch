@@ -23,6 +23,8 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+ONLINE_CARRY_HOURS = 12  # 在线状态的延续窗口：任一探测网络见过在线即保留
+
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
@@ -194,15 +196,36 @@ def main():
         )
         if seed_only and r["status"] != "online":
             continue
+
         old = prev.get(st["name"]) or {}
-        fails = (old.get("fails") or 0) + 1 if r["status"] != "online" else 0
-        out[st["name"]] = {
+        last_online = old.get("lastOnlineAt") or (
+            old.get("checkedAt") if old.get("status") == "online" else None
+        )
+        models = r["models"] if r["models"] else old.get("models")
+
+        entry = {
             "status": r["status"],
             "note": r["note"],
-            "fails": fails,
-            "models": r["models"] if r["models"] else old.get("models"),
+            "fails": (old.get("fails") or 0) + 1 if r["status"] != "online" else 0,
+            "models": models,
             "checkedAt": now.isoformat(timespec="seconds"),
+            "lastOnlineAt": last_online,
         }
+
+        # 本次探测不在线，但另一网络在窗口内见过它在线 → 沿用在线结论
+        if r["status"] != "online" and last_online:
+            try:
+                age = now - datetime.datetime.fromisoformat(last_online)
+            except ValueError:
+                age = None
+            if age is not None and datetime.timedelta(0) <= age < datetime.timedelta(hours=ONLINE_CARRY_HOURS):
+                entry["status"] = "online"
+                entry["fails"] = 0
+                entry["note"] = "沿用 " + last_online + " 的在线记录"
+        if entry["status"] == "online" and r["status"] == "online":
+            entry["lastOnlineAt"] = entry["checkedAt"]
+
+        out[st["name"]] = entry
 
     live = {"generatedAt": now.isoformat(timespec="seconds"), "stations": out}
     print(json.dumps(live, ensure_ascii=False, indent=2))
