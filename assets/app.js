@@ -378,12 +378,14 @@
       if (Array.isArray(e.models) && e.models.length) {
         var tags = cardEl.querySelector(".tags");
         if (!tags) return;
-        var cap = 24;
-        var html = e.models.slice(0, cap).map(function (m) {
-          return '<span class="tag ' + tagClass(m) + '" title="实时抓取">' + esc(m) + "</span>";
+        var cap = 8;
+        var n = e.models.length;
+        var html = e.models.map(function (m, i) {
+          var hidden = i >= cap ? ' style="display:none"' : "";
+          return '<span class="tag ' + tagClass(m) + '" title="实时抓取"' + hidden + ">" + esc(m) + "</span>";
         }).join("");
-        if (e.models.length > cap) {
-          html += '<span class="tag tag-misc">…共 ' + e.models.length + " 个</span>";
+        if (n > cap) {
+          html += '<button class="tags-toggle" type="button" data-open="0">展开全部 ' + n + " 个 ▾</button>";
         }
         tags.innerHTML = html + '<span class="live-src">⚡ 实时抓取</span>';
       }
@@ -394,6 +396,23 @@
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(applyLive)
     .catch(function () { /* live.json 缺失或解析失败时保持静态展示 */ });
+
+  /* ---------- 模型列表展开 / 收起 ---------- */
+  document.getElementById("cards").addEventListener("click", function (e) {
+    var btn = e.target.closest(".tags-toggle");
+    if (!btn) return;
+    var tags = btn.closest(".tags");
+    var wasOpen = btn.dataset.open === "1";
+    var nowOpen = !wasOpen;
+    var modelTags = tags.querySelectorAll(".tag");
+    var src = tags.querySelector(".live-src");
+    modelTags.forEach(function (t, i) {
+      t.style.display = nowOpen || i < 8 ? "" : "none";
+    });
+    btn.dataset.open = nowOpen ? "1" : "0";
+    btn.textContent = nowOpen ? "收起 ▴" : "展开全部 " + modelTags.length + " 个 ▾";
+    if (src) tags.appendChild(src); // 保持「实时抓取」标记在末尾
+  });
 
   render();
 })();
