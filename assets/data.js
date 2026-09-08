@@ -9,6 +9,7 @@ const STATIONS = [
   {
     name: "AgentRouter",
     domain: "agentrouter.org",
+    tokenEnv: "XUSUO_TOKEN_AGENTROUTER",
     probeDomain: "ps.air-outer.com",
     half: false,
     stars: 5,
@@ -25,6 +26,7 @@ const STATIONS = [
   {
     name: "justwoker",
     domain: "api.justwoker.icu",
+    tokenEnv: "XUSUO_TOKEN_JUSTWOKER",
     half: false,
     stars: 4,
     down: true,
@@ -42,6 +44,7 @@ const STATIONS = [
   {
     name: "GoRouter",
     domain: "gorouter.app",
+    tokenEnv: "XUSUO_TOKEN_GOROUTER",
     half: false,
     stars: 3,
     down: true,
@@ -59,6 +62,7 @@ const STATIONS = [
   {
     name: "tabiai",
     domain: "tabitoken.com",
+    tokenEnv: "XUSUO_TOKEN_TABIAI",
     half: false,
     stars: 2,
     down: true,
@@ -76,6 +80,7 @@ const STATIONS = [
   {
     name: "KKtoken",
     domain: "kktoken.cc",
+    tokenEnv: "XUSUO_TOKEN_KKTOKEN",
     half: false,
     stars: 3,
     down: true,
@@ -93,6 +98,7 @@ const STATIONS = [
   {
     name: "Seekai",
     domain: "seekai.cc",
+    tokenEnv: "XUSUO_TOKEN_SEEKAI",
     half: false,
     stars: 1,
     warning: "可能无法调用工具",
@@ -117,6 +123,7 @@ const STATIONS = [
   {
     name: "哈基米",
     domain: "api.gemai.cc",
+    tokenEnv: "XUSUO_TOKEN_HAJIMI",
     half: true,
     stars: 3,
     signupLabel: "注册即得",

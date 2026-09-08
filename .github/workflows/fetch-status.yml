@@ -23,6 +23,16 @@ jobs:
           python-version: "3.12"
 
       - name: 抓取状态并生成 live.json
+        env:
+          # 可选：在各站控制台创建 sk- 令牌后用 gh secret set 配置，
+          # 未配置的站点自动退回公开接口抓取
+          XUSUO_TOKEN_AGENTROUTER: ${{ secrets.XUSUO_TOKEN_AGENTROUTER }}
+          XUSUO_TOKEN_JUSTWOKER: ${{ secrets.XUSUO_TOKEN_JUSTWOKER }}
+          XUSUO_TOKEN_GOROUTER: ${{ secrets.XUSUO_TOKEN_GOROUTER }}
+          XUSUO_TOKEN_TABIAI: ${{ secrets.XUSUO_TOKEN_TABIAI }}
+          XUSUO_TOKEN_KKTOKEN: ${{ secrets.XUSUO_TOKEN_KKTOKEN }}
+          XUSUO_TOKEN_SEEKAI: ${{ secrets.XUSUO_TOKEN_SEEKAI }}
+          XUSUO_TOKEN_HAJIMI: ${{ secrets.XUSUO_TOKEN_HAJIMI }}
         run: |
           # 先写临时文件再覆盖：脚本需要读取现有 live.json 做状态延续合并
           python scripts/fetch_status.py > live.tmp.json
