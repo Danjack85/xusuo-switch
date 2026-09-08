@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T13:05:08+08:00",
+  "generatedAt": "2026-09-08T13:27:35+08:00",
   "stations": {
     "AgentRouter": {
       "status": "online",
@@ -13,17 +13,21 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-08T13:05:08+08:00",
+      "checkedAt": "2026-09-08T13:27:35+08:00",
       "lastOnlineAt": "2026-09-08T12:05:25+08:00"
     },
     "justwoker": {
       "status": "online",
       "note": "",
       "fails": 0,
-      "models": null,
-      "modelsSrc": "",
-      "checkedAt": "2026-09-08T13:05:08+08:00",
-      "lastOnlineAt": "2026-09-08T13:05:08+08:00"
+      "models": [
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-5.6-terra"
+      ],
+      "modelsSrc": "v1/models",
+      "checkedAt": "2026-09-08T13:27:35+08:00",
+      "lastOnlineAt": "2026-09-08T13:27:35+08:00"
     },
     "GoRouter": {
       "status": "online",
@@ -31,8 +35,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-08T13:05:08+08:00",
-      "lastOnlineAt": "2026-09-08T13:05:08+08:00"
+      "checkedAt": "2026-09-08T13:27:35+08:00",
+      "lastOnlineAt": "2026-09-08T13:27:35+08:00"
     },
     "tabiai": {
       "status": "online",
@@ -40,8 +44,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-08T13:05:08+08:00",
-      "lastOnlineAt": "2026-09-08T13:05:08+08:00"
+      "checkedAt": "2026-09-08T13:27:35+08:00",
+      "lastOnlineAt": "2026-09-08T13:27:35+08:00"
     },
     "KKtoken": {
       "status": "online",
@@ -49,17 +53,19 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-08T13:05:08+08:00",
-      "lastOnlineAt": "2026-09-08T13:05:08+08:00"
+      "checkedAt": "2026-09-08T13:27:35+08:00",
+      "lastOnlineAt": "2026-09-08T13:27:35+08:00"
     },
     "Seekai": {
       "status": "online",
       "note": "",
       "fails": 0,
-      "models": null,
-      "modelsSrc": "",
-      "checkedAt": "2026-09-08T13:05:08+08:00",
-      "lastOnlineAt": "2026-09-08T13:05:08+08:00"
+      "models": [
+        "claude-fable-5"
+      ],
+      "modelsSrc": "v1/models",
+      "checkedAt": "2026-09-08T13:27:35+08:00",
+      "lastOnlineAt": "2026-09-08T13:27:35+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -357,8 +363,8 @@
         "qwen3.7-max"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-09-08T13:05:08+08:00",
-      "lastOnlineAt": "2026-09-08T13:05:08+08:00"
+      "checkedAt": "2026-09-08T13:27:35+08:00",
+      "lastOnlineAt": "2026-09-08T13:27:35+08:00"
     }
   }
 }
