@@ -1,47 +1,47 @@
 {
-  "generatedAt": "2026-09-08T11:39:27+08:00",
+  "generatedAt": "2026-09-08T11:46:15+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status HTTP 200",
       "fails": 1,
       "models": null,
-      "checkedAt": "2026-09-08T11:39:27+08:00"
+      "checkedAt": "2026-09-08T11:46:15+08:00"
     },
     "justwoker": {
       "status": "online",
       "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T11:39:27+08:00"
+      "checkedAt": "2026-09-08T11:46:15+08:00"
     },
     "GoRouter": {
       "status": "online",
       "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T11:39:27+08:00"
+      "checkedAt": "2026-09-08T11:46:15+08:00"
     },
     "tabiai": {
       "status": "online",
       "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T11:39:27+08:00"
+      "checkedAt": "2026-09-08T11:46:15+08:00"
     },
     "KKtoken": {
       "status": "online",
       "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T11:39:27+08:00"
+      "checkedAt": "2026-09-08T11:46:15+08:00"
     },
     "Seekai": {
       "status": "online",
       "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T11:39:27+08:00"
+      "checkedAt": "2026-09-08T11:46:15+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -338,7 +338,7 @@
         "qwen3-reranker-8b",
         "qwen3.7-max"
       ],
-      "checkedAt": "2026-09-08T11:39:27+08:00"
+      "checkedAt": "2026-09-08T11:46:15+08:00"
     }
   }
 }
