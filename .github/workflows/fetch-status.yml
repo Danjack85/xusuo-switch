@@ -2,7 +2,7 @@ name: 抓取公益站状态
 
 on:
   schedule:
-    - cron: "13 */3 * * *" # 每 3 小时（UTC）
+    - cron: "13 * * * *" # 每小时（UTC）
   workflow_dispatch:
 
 permissions:

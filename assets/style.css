@@ -475,6 +475,19 @@ html.dark .orb-c { background: rgba(245, 158, 11, 0.16); }
 }
 .card:active { transform: translateY(-1px) scale(0.995); }
 
+/* 无可用模型的站点：整卡灰化 */
+.card.no-models {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--text-3) 5%, var(--card)), var(--card) 120px);
+  opacity: 0.82;
+}
+.card.no-models .avatar { filter: grayscale(0.85); }
+.card.no-models .bonus-value { color: var(--text-3); }
+.card.no-models .card-name { color: var(--text-2); }
+.card.no-models .btn {
+  background: var(--border);
+  box-shadow: none;
+}
+
 /* 掠过的高光 */
 .card::before {
   content: "";

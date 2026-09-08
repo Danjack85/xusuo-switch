@@ -393,9 +393,11 @@
           html += '<button class="tags-toggle" type="button" data-open="0">展开全部 ' + n + " 个 ▾</button>";
         }
         tags.innerHTML = html + '<span class="live-src">⚡ 实时抓取</span>';
+        cardEl.classList.remove("no-models");
       } else {
         tags.innerHTML = '<span class="tag tag-misc">无模型</span>' +
           '<span class="live-src">以实时抓取为准</span>';
+        cardEl.classList.add("no-models");
       }
       delete tags.dataset.pending;
     });

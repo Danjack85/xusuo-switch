@@ -64,7 +64,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 def fetch(url, timeout=15, token=None):
     """对 https://域名/api/xxx 或 /v1/models 形态的 URL 发起受限请求。"""
-    m = re.match(r"^https://([^/]+)/(api/[a-z]+|v1/models)$", url)
+    m = re.match(r"^https://([^/]+)/(api/[a-z/]+|v1/models)$", url)
     if not m:
         raise ValueError("URL 不在允许的白名单形态内: " + url)
     assert_public_domain(m.group(1))
@@ -108,11 +108,16 @@ def fetch_models(domain, token=None):
     """依次尝试多个模型来源，返回 (模型列表, 来源说明) 或 (None, "")。
 
     1) 公开报价 /api/pricing（new-api 系）
-    2) 配置了令牌时：带鉴权的 /api/pricing，再退到 OpenAI 兼容 /v1/models
+    2) 配置了令牌时：带鉴权的 /api/pricing、/api/user/models（new-api
+       当前令牌可用模型）、OpenAI 兼容 /v1/models
     """
     attempts = [("public-pricing", "/api/pricing", None)]
     if token:
-        attempts += [("pricing+token", "/api/pricing", token), ("v1/models", "/v1/models", token)]
+        attempts += [
+            ("pricing+token", "/api/pricing", token),
+            ("user/models", "/api/user/models", token),
+            ("v1/models", "/v1/models", token),
+        ]
     for label, path, tok in attempts:
         try:
             code, body = fetch("https://%s%s" % (domain, path), token=tok)
