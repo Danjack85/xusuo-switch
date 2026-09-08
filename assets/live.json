@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-08T12:05:25+08:00",
+  "generatedAt": "2026-09-08T12:34:49+08:00",
   "stations": {
     "AgentRouter": {
       "status": "online",
-      "note": "",
+      "note": "沿用 2026-09-08T12:05:25+08:00 的在线记录",
       "fails": 0,
       "models": [
         "claude-opus-4-8",
@@ -12,7 +12,7 @@
         "glm-5.3",
         "gpt-5.6-sol"
       ],
-      "checkedAt": "2026-09-08T12:05:25+08:00",
+      "checkedAt": "2026-09-08T12:34:49+08:00",
       "lastOnlineAt": "2026-09-08T12:05:25+08:00"
     },
     "justwoker": {
@@ -20,44 +20,44 @@
       "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T12:05:25+08:00",
-      "lastOnlineAt": "2026-09-08T12:05:25+08:00"
+      "checkedAt": "2026-09-08T12:34:49+08:00",
+      "lastOnlineAt": "2026-09-08T12:34:49+08:00"
     },
     "GoRouter": {
       "status": "online",
-      "note": "沿用 2026-09-08T11:46:15+08:00 的在线记录",
+      "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T12:05:25+08:00",
-      "lastOnlineAt": "2026-09-08T11:46:15+08:00"
+      "checkedAt": "2026-09-08T12:34:49+08:00",
+      "lastOnlineAt": "2026-09-08T12:34:49+08:00"
     },
     "tabiai": {
       "status": "online",
-      "note": "沿用 2026-09-08T11:46:15+08:00 的在线记录",
+      "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T12:05:25+08:00",
-      "lastOnlineAt": "2026-09-08T11:46:15+08:00"
+      "checkedAt": "2026-09-08T12:34:49+08:00",
+      "lastOnlineAt": "2026-09-08T12:34:49+08:00"
     },
     "KKtoken": {
       "status": "online",
-      "note": "沿用 2026-09-08T11:46:15+08:00 的在线记录",
+      "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T12:05:25+08:00",
-      "lastOnlineAt": "2026-09-08T11:46:15+08:00"
+      "checkedAt": "2026-09-08T12:34:49+08:00",
+      "lastOnlineAt": "2026-09-08T12:34:49+08:00"
     },
     "Seekai": {
       "status": "online",
-      "note": "沿用 2026-09-08T11:46:15+08:00 的在线记录",
+      "note": "",
       "fails": 0,
       "models": null,
-      "checkedAt": "2026-09-08T12:05:25+08:00",
-      "lastOnlineAt": "2026-09-08T11:46:15+08:00"
+      "checkedAt": "2026-09-08T12:34:49+08:00",
+      "lastOnlineAt": "2026-09-08T12:34:49+08:00"
     },
     "哈基米": {
       "status": "online",
-      "note": "沿用 2026-09-08T11:46:15+08:00 的在线记录",
+      "note": "",
       "fails": 0,
       "models": [
         "[CodeA]gemini-3.1-pro-preview",
@@ -350,8 +350,8 @@
         "qwen3-reranker-8b",
         "qwen3.7-max"
       ],
-      "checkedAt": "2026-09-08T12:05:25+08:00",
-      "lastOnlineAt": "2026-09-08T11:46:15+08:00"
+      "checkedAt": "2026-09-08T12:34:49+08:00",
+      "lastOnlineAt": "2026-09-08T12:34:49+08:00"
     }
   }
 }
