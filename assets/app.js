@@ -168,7 +168,7 @@
             '<span class="bonus-value">' + esc(s.dailyBonus) + "</span>" +
           "</div>" +
         "</div>" +
-        '<div class="tags">' + tags + "</div>" +
+        '<div class="tags" data-pending="1"><span class="tag tag-misc">模型加载中…</span></div>' +
         '<dl class="facts">' +
           (s.warning ? '<div class="warn-row' + (s.down ? " danger" : "") + '"><dt>' + (s.down ? "警告" : "注意") + "</dt><dd>" + esc(s.warning) + "</dd></div>" : "") +
           "<div><dt>注册要求</dt><dd>" + esc(s.signupReq) + "</dd></div>" +
@@ -201,11 +201,13 @@
     return list;
   }
 
+  var liveData = null; // 实时抓取数据：render() 重建卡片后用它恢复实时状态
   function render() {
     var list = currentList();
     cardsBox.innerHTML = list.map(cardHTML).join("");
     countBox.textContent = "共 " + list.length + " 个";
     emptyBox.hidden = list.length !== 0;
+    if (liveData) applyLive(liveData); // 筛选/搜索重建卡片后恢复实时状态
   }
 
   cardsBox.addEventListener("click", function (e) {
@@ -347,9 +349,10 @@
     document.getElementById("footDate").textContent = SITE_UPDATED_AT;
   }
 
-  /* ---------- 实时状态叠加（assets/live.json 由 GitHub Actions 定时抓取） ---------- */
+
   function applyLive(live) {
     if (!live || !live.stations) return;
+    liveData = live;
     var stamp = document.getElementById("liveStamp");
     if (stamp && live.generatedAt) {
       stamp.textContent = "状态抓取于 " + live.generatedAt.replace("T", " ").slice(0, 16);
@@ -359,7 +362,9 @@
       var name = cardEl.querySelector(".card-name").textContent;
       var e = live.stations[name];
       var badges = cardEl.querySelector(".card-badges");
-      if (!e || !badges || cardEl.querySelector(".badge.live")) return;
+      if (!badges) return;
+      var oldBadge = cardEl.querySelector(".badge.live");
+      if (oldBadge) oldBadge.remove();
 
       var map;
       if (e.status === "online") map = ["live-on", "在线", "接口正常响应"];
@@ -374,10 +379,10 @@
         (e.note ? "，" + e.note : "") + "）";
       badges.insertBefore(b, badges.firstChild);
 
-      // 实时模型列表（抓取到公开报价时替换静态标签）
+      // 模型列表：一律以实时抓取为准
+      var tags = cardEl.querySelector(".tags");
+      if (!tags) return;
       if (Array.isArray(e.models) && e.models.length) {
-        var tags = cardEl.querySelector(".tags");
-        if (!tags) return;
         var cap = 8;
         var n = e.models.length;
         var html = e.models.map(function (m, i) {
@@ -388,7 +393,11 @@
           html += '<button class="tags-toggle" type="button" data-open="0">展开全部 ' + n + " 个 ▾</button>";
         }
         tags.innerHTML = html + '<span class="live-src">⚡ 实时抓取</span>';
+      } else {
+        tags.innerHTML = '<span class="tag tag-misc">无模型</span>' +
+          '<span class="live-src">以实时抓取为准</span>';
       }
+      delete tags.dataset.pending;
     });
   }
 

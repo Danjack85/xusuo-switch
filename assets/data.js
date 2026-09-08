@@ -2,8 +2,9 @@
  * 新增 / 修改公益站只需要改这个文件，页面会自动渲染。
  * signupBonus / dailyBonus 为展示文本；signupNum / dailyNum 为排序用数值。
  * stars 为推荐指数（1~5，整星展示）；warning 为醒目注意项（可选）。
+ * models 仅供筛选/搜索匹配使用；卡片上的模型一律以实时抓取为准（无数据显示「无模型」）。
  */
-const SITE_UPDATED_AT = "2026-09-07";
+const SITE_UPDATED_AT = "2026-09-08";
 
 const STATIONS = [
   {
@@ -29,8 +30,6 @@ const STATIONS = [
     tokenEnv: "XUSUO_TOKEN_JUSTWOKER",
     half: false,
     stars: 4,
-    down: true,
-    warning: "暂时无模型，可能已跑路",
     signupLabel: "注册即得",
     signupBonus: "$90",
     signupNum: 90,
@@ -47,8 +46,6 @@ const STATIONS = [
     tokenEnv: "XUSUO_TOKEN_GOROUTER",
     half: false,
     stars: 3,
-    down: true,
-    warning: "暂时无模型，可能已跑路",
     signupLabel: "注册即得",
     signupBonus: "$70",
     signupNum: 70,
@@ -65,8 +62,6 @@ const STATIONS = [
     tokenEnv: "XUSUO_TOKEN_TABIAI",
     half: false,
     stars: 2,
-    down: true,
-    warning: "暂时无模型，可能已跑路",
     signupLabel: "注册即得",
     signupBonus: "$120",
     signupNum: 120,
@@ -83,8 +78,6 @@ const STATIONS = [
     tokenEnv: "XUSUO_TOKEN_KKTOKEN",
     half: false,
     stars: 3,
-    down: true,
-    warning: "暂时无模型，可能已跑路",
     signupLabel: "注册即得",
     signupBonus: "$75",
     signupNum: 75,
