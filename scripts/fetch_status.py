@@ -66,11 +66,21 @@ def fetch(url, timeout=15):
         raise ValueError("URL 不在允许的白名单形态内: " + url)
     assert_public_domain(m.group(1))
     req = urllib.request.Request(
-        url, headers={"User-Agent": UA, "Accept": "application/json"}
+        url,
+        headers={
+            "User-Agent": UA,
+            "Accept": "application/json",
+            "Accept-Encoding": "identity",
+        },
     )
     opener = urllib.request.build_opener(NoRedirect)
     with opener.open(req, timeout=timeout) as r:
-        return r.status, r.read(2_000_000).decode("utf-8", "replace")
+        return r.status, r.read(2_000_000).decode("utf-8-sig", "replace")
+
+
+def looks_json(body):
+    head = body.lstrip()[:1]
+    return head == "{" or head == "["
 
 
 def load_stations():
@@ -103,11 +113,20 @@ def load_previous():
 
 
 def probe(domain):
+    """探测单个域名，返回 {status, note, models}。
+
+    /api/status 返回 JSON 即视为 online；HTTP 200 但非 JSON（部分地区返回
+    着陆页）时继续尝试 /api/pricing，能取到模型列表也视为 online。
+    """
     result = {"status": None, "note": "", "models": None}
+    status_ok = False
     try:
         code, body = fetch("https://%s/api/status" % domain)
-        if code == 200 and body.lstrip()[:1] == "{":
-            result["status"] = "online"
+        if code == 200 and looks_json(body):
+            status_ok = True
+        elif code == 200:
+            result["status"] = "blocked"
+            result["note"] = "status 200 非JSON: " + body.lstrip()[:40].replace("\n", " ")
         else:
             result["status"] = "blocked"
             result["note"] = "status HTTP %s" % code
@@ -125,25 +144,34 @@ def probe(domain):
         result["status"] = "unreachable"
         result["note"] = type(e).__name__
 
-    if result["status"] == "online":
-        try:
-            code, body = fetch("https://%s/api/pricing" % domain)
-            if code == 200 and body.lstrip()[:1] == "{":
-                data = json.loads(body)
-                payload = data.get("data") if isinstance(data, dict) else data
-                names = []
-                if isinstance(payload, list):
-                    names = [
-                        it.get("model_name")
-                        for it in payload
-                        if isinstance(it, dict) and it.get("model_name")
-                    ]
-                elif isinstance(payload, dict):
-                    names = list(payload.keys())
-                if names:
-                    result["models"] = sorted(set(names))
-        except Exception:
-            pass
+    try:
+        code, body = fetch("https://%s/api/pricing" % domain)
+        if code == 200 and looks_json(body):
+            data = json.loads(body)
+            payload = data.get("data") if isinstance(data, dict) else data
+            names = []
+            if isinstance(payload, list):
+                names = [
+                    it.get("model_name")
+                    for it in payload
+                    if isinstance(it, dict) and it.get("model_name")
+                ]
+            elif isinstance(payload, dict):
+                names = list(payload.keys())
+            if names:
+                result["models"] = sorted(set(names))
+                if status_ok:
+                    result["status"] = "online"
+                    result["note"] = ""
+                else:
+                    result["status"] = "online"
+                    result["note"] = "经 pricing 接口确认在线"
+    except Exception:
+        pass
+
+    if result["status"] != "online" and status_ok:
+        result["status"] = "online"
+        result["note"] = ""
     return result
 
 
@@ -154,9 +182,15 @@ def main():
     out = {}
     for st in load_stations():
         r = probe(st["probe"])
+        via = st["probe"]
+        # 备用入口不在线时再试主站（不同出口对防护墙的可见性不同）
+        if r["status"] != "online" and st["probe"] != st["domain"]:
+            r2 = probe(st["domain"])
+            if r2["status"] == "online":
+                r, via = r2, st["domain"]
         log(
             "%-14s %-12s via=%-18s models=%-4s %s"
-            % (st["name"], r["status"], st["probe"], len(r["models"] or []), r["note"])
+            % (st["name"], r["status"], via, len(r["models"] or []), r["note"])
         )
         if seed_only and r["status"] != "online":
             continue
