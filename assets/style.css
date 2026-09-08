@@ -533,6 +533,19 @@ html.dark .orb-c { background: rgba(245, 158, 11, 0.16); }
 .badge.aff { color: var(--accent-strong); background: var(--accent-soft); border-color: transparent; }
 .badge.half { color: var(--amber); background: var(--amber-soft); border-color: transparent; }
 
+/* 实时状态徽章 */
+.badge.live { border-color: transparent; font-variant-numeric: tabular-nums; }
+.badge.live-on { color: #059669; background: var(--accent-soft); }
+html.dark .badge.live-on { color: #34d399; }
+.badge.live-weak { color: var(--amber); background: var(--amber-soft); }
+.badge.live-off { color: #dc2626; background: rgba(220, 38, 38, 0.1); }
+html.dark .badge.live-off { color: #f87171; background: rgba(248, 113, 113, 0.13); }
+.badge.live-unknown { color: var(--text-3); background: var(--bg-soft); }
+html.dark .badge.live-unknown { background: rgba(255, 255, 255, 0.05); }
+
+.live-stamp { color: var(--accent-strong); border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
+.live-src { font-size: 10.5px; color: var(--text-3); align-self: center; margin-left: 4px; white-space: nowrap; }
+
 .stars { font-size: 13px; line-height: 1.1; letter-spacing: 1.5px; white-space: nowrap; }
 .stars b { color: var(--amber); font-weight: 400; }
 .stars i { color: var(--text-3); font-style: normal; opacity: 0.6; }

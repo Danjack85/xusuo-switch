@@ -347,5 +347,53 @@
     document.getElementById("footDate").textContent = SITE_UPDATED_AT;
   }
 
+  /* ---------- 实时状态叠加（assets/live.json 由 GitHub Actions 定时抓取） ---------- */
+  function applyLive(live) {
+    if (!live || !live.stations) return;
+    var stamp = document.getElementById("liveStamp");
+    if (stamp && live.generatedAt) {
+      stamp.textContent = "状态抓取于 " + live.generatedAt.replace("T", " ").slice(0, 16);
+      stamp.hidden = false;
+    }
+    document.querySelectorAll("#cards article").forEach(function (cardEl) {
+      var name = cardEl.querySelector(".card-name").textContent;
+      var e = live.stations[name];
+      var badges = cardEl.querySelector(".card-badges");
+      if (!e || !badges || cardEl.querySelector(".badge.live")) return;
+
+      var map;
+      if (e.status === "online") map = ["live-on", "在线", "接口正常响应"];
+      else if (e.status === "blocked") map = ["live-unknown", "拦截", "被防护墙拦截，无法验证真实状态"];
+      else if ((e.fails || 0) >= 4) map = ["live-off", "多次不可达", "连续 " + e.fails + " 次抓取失败"];
+      else map = ["live-weak", "暂不可达", "最近一次抓取失败"];
+
+      var b = document.createElement("span");
+      b.className = "badge live " + map[0];
+      b.textContent = "● " + map[1];
+      b.title = map[2] + "（抓取于 " + (e.checkedAt || "?").replace("T", " ").slice(0, 16) +
+        (e.note ? "，" + e.note : "") + "）";
+      badges.insertBefore(b, badges.firstChild);
+
+      // 实时模型列表（抓取到公开报价时替换静态标签）
+      if (Array.isArray(e.models) && e.models.length) {
+        var tags = cardEl.querySelector(".tags");
+        if (!tags) return;
+        var cap = 24;
+        var html = e.models.slice(0, cap).map(function (m) {
+          return '<span class="tag ' + tagClass(m) + '" title="实时抓取">' + esc(m) + "</span>";
+        }).join("");
+        if (e.models.length > cap) {
+          html += '<span class="tag tag-misc">…共 ' + e.models.length + " 个</span>";
+        }
+        tags.innerHTML = html + '<span class="live-src">⚡ 实时抓取</span>';
+      }
+    });
+  }
+
+  fetch("assets/live.json", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(applyLive)
+    .catch(function () { /* live.json 缺失或解析失败时保持静态展示 */ });
+
   render();
 })();

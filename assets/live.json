@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-09-08T10:58:39+08:00",
+  "stations": {
+    "justwoker": {
+      "status": "online",
+      "note": "",
+      "fails": 0,
+      "models": null,
+      "checkedAt": "2026-09-08T10:58:39+08:00"
+    }
+  }
+}

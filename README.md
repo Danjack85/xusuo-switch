@@ -22,6 +22,16 @@ python -m http.server 8080
 # 然后访问 http://localhost:8080
 ```
 
+## 实时状态抓取
+
+站点状态与模型列表由 GitHub Actions 定时抓取（每 3 小时，`.github/workflows/fetch-status.yml`）：
+
+1. `scripts/fetch_status.py` 从 `assets/data.js` 解析站点清单，探测各站 `/api/status` 与 `/api/pricing`；
+2. 结果写入 `assets/live.json` 并自动提交，Pages 随之更新；
+3. 前端加载 `live.json`，在卡片上叠加「在线 / 暂不可达 / 多次不可达 / 拦截」实时徽章；抓到公开模型报价时以实时列表替换静态标签。
+
+状态含义：`online` 接口正常响应；`blocked` 被防护墙拦截无法验证；`unreachable` 超时/连接失败（连续 ≥4 次显示「多次不可达」）。手动触发：仓库 Actions 页运行「抓取公益站状态」。本地手动抓取：`python scripts/fetch_status.py > assets/live.json`。
+
 ## 修改内容
 
 所有站点与工具数据都集中在 [`assets/data.js`](assets/data.js)，增删改站点只需要编辑这个文件，页面会自动渲染。
