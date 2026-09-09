@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-09T20:07:00+08:00",
+  "generatedAt": "2026-09-10T00:36:48+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 6,
+      "fails": 7,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-09T20:07:00+08:00",
+      "checkedAt": "2026-09-10T00:36:48+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -26,8 +26,8 @@
         "gpt-5.6-terra"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-09T20:07:00+08:00",
-      "lastOnlineAt": "2026-09-09T20:07:00+08:00"
+      "checkedAt": "2026-09-10T00:36:48+08:00",
+      "lastOnlineAt": "2026-09-10T00:36:48+08:00"
     },
     "GoRouter": {
       "status": "online",
@@ -35,8 +35,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-09T20:07:00+08:00",
-      "lastOnlineAt": "2026-09-09T20:07:00+08:00"
+      "checkedAt": "2026-09-10T00:36:48+08:00",
+      "lastOnlineAt": "2026-09-10T00:36:48+08:00"
     },
     "tabiai": {
       "status": "online",
@@ -44,8 +44,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-09T20:07:00+08:00",
-      "lastOnlineAt": "2026-09-09T20:07:00+08:00"
+      "checkedAt": "2026-09-10T00:36:48+08:00",
+      "lastOnlineAt": "2026-09-10T00:36:48+08:00"
     },
     "KKtoken": {
       "status": "online",
@@ -53,8 +53,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-09T20:07:00+08:00",
-      "lastOnlineAt": "2026-09-09T20:07:00+08:00"
+      "checkedAt": "2026-09-10T00:36:48+08:00",
+      "lastOnlineAt": "2026-09-10T00:36:48+08:00"
     },
     "Seekai": {
       "status": "online",
@@ -63,9 +63,9 @@
       "models": [
         "glm-5.3-flash"
       ],
-      "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-09T20:07:00+08:00",
-      "lastOnlineAt": "2026-09-09T20:07:00+08:00"
+      "modelsSrc": "",
+      "checkedAt": "2026-09-10T00:36:48+08:00",
+      "lastOnlineAt": "2026-09-10T00:36:48+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -248,8 +248,6 @@
         "[特价D]claude-opus-4-8",
         "[特价D]claude-opus-5",
         "[特价D]claude-sonnet-5-thinking",
-        "[特价E]claude-opus-4-6",
-        "[特价E]claude-opus-4-6-thinking",
         "[特价F]claude-opus-4-6",
         "[特价F]claude-opus-4-6-thinking",
         "[特价F]claude-opus-4-7",
@@ -366,8 +364,8 @@
         "qwen3.7-max"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-09-09T20:07:00+08:00",
-      "lastOnlineAt": "2026-09-09T20:07:00+08:00"
+      "checkedAt": "2026-09-10T00:36:48+08:00",
+      "lastOnlineAt": "2026-09-10T00:36:48+08:00"
     }
   }
 }
