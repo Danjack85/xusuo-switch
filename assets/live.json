@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-13T05:54:05+08:00",
+  "generatedAt": "2026-09-13T07:48:00+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 30,
+      "fails": 31,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-13T05:54:05+08:00",
+      "checkedAt": "2026-09-13T07:48:00+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -25,9 +25,9 @@
         "gpt-5.6-sol",
         "gpt-5.6-terra"
       ],
-      "modelsSrc": "",
-      "checkedAt": "2026-09-13T05:54:05+08:00",
-      "lastOnlineAt": "2026-09-13T05:54:05+08:00"
+      "modelsSrc": "v1/models",
+      "checkedAt": "2026-09-13T07:48:00+08:00",
+      "lastOnlineAt": "2026-09-13T07:48:00+08:00"
     },
     "GoRouter": {
       "status": "online",
@@ -35,8 +35,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-13T05:54:05+08:00",
-      "lastOnlineAt": "2026-09-13T05:54:05+08:00"
+      "checkedAt": "2026-09-13T07:48:00+08:00",
+      "lastOnlineAt": "2026-09-13T07:48:00+08:00"
     },
     "tabiai": {
       "status": "online",
@@ -44,8 +44,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-13T05:54:05+08:00",
-      "lastOnlineAt": "2026-09-13T05:54:05+08:00"
+      "checkedAt": "2026-09-13T07:48:00+08:00",
+      "lastOnlineAt": "2026-09-13T07:48:00+08:00"
     },
     "KKtoken": {
       "status": "online",
@@ -53,8 +53,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-13T05:54:05+08:00",
-      "lastOnlineAt": "2026-09-13T05:54:05+08:00"
+      "checkedAt": "2026-09-13T07:48:00+08:00",
+      "lastOnlineAt": "2026-09-13T07:48:00+08:00"
     },
     "Seekai": {
       "status": "online",
@@ -65,8 +65,8 @@
         "mimo-v2.5"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-13T05:54:05+08:00",
-      "lastOnlineAt": "2026-09-13T05:54:05+08:00"
+      "checkedAt": "2026-09-13T07:48:00+08:00",
+      "lastOnlineAt": "2026-09-13T07:48:00+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -381,8 +381,8 @@
         "qwen3.7-max"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-09-13T05:54:05+08:00",
-      "lastOnlineAt": "2026-09-13T05:54:05+08:00"
+      "checkedAt": "2026-09-13T07:48:00+08:00",
+      "lastOnlineAt": "2026-09-13T07:48:00+08:00"
     }
   }
 }
