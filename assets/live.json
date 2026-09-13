@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-13T15:55:53+08:00",
+  "generatedAt": "2026-09-13T21:13:33+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 33,
+      "fails": 34,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-13T15:55:53+08:00",
+      "checkedAt": "2026-09-13T21:13:33+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -26,8 +26,8 @@
         "gpt-5.6-terra"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-13T15:55:53+08:00",
-      "lastOnlineAt": "2026-09-13T15:55:53+08:00"
+      "checkedAt": "2026-09-13T21:13:33+08:00",
+      "lastOnlineAt": "2026-09-13T21:13:33+08:00"
     },
     "GoRouter": {
       "status": "online",
@@ -35,8 +35,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-13T15:55:53+08:00",
-      "lastOnlineAt": "2026-09-13T15:55:53+08:00"
+      "checkedAt": "2026-09-13T21:13:33+08:00",
+      "lastOnlineAt": "2026-09-13T21:13:33+08:00"
     },
     "tabiai": {
       "status": "online",
@@ -44,8 +44,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-13T15:55:53+08:00",
-      "lastOnlineAt": "2026-09-13T15:55:53+08:00"
+      "checkedAt": "2026-09-13T21:13:33+08:00",
+      "lastOnlineAt": "2026-09-13T21:13:33+08:00"
     },
     "KKtoken": {
       "status": "online",
@@ -53,20 +53,21 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-13T15:55:53+08:00",
-      "lastOnlineAt": "2026-09-13T15:55:53+08:00"
+      "checkedAt": "2026-09-13T21:13:33+08:00",
+      "lastOnlineAt": "2026-09-13T21:13:33+08:00"
     },
     "Seekai": {
       "status": "online",
       "note": "",
       "fails": 0,
       "models": [
+        "glm-5.3-flash",
         "hy3",
         "mimo-v2.5"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-13T15:55:53+08:00",
-      "lastOnlineAt": "2026-09-13T15:55:53+08:00"
+      "checkedAt": "2026-09-13T21:13:33+08:00",
+      "lastOnlineAt": "2026-09-13T21:13:33+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -228,6 +229,9 @@
         "[满血G]gemini-3.1-pro-preview",
         "[满血G]gemini-3.1-pro-preview-searching",
         "[满血G]gemini-3.5-flash",
+        "[满血G]gemini-3.6-flash",
+        "[满血G]gemini-3.7-flash",
+        "[满血G]gemini-3.8-flash",
         "[特价C]claude-fable-5",
         "[特价C]claude-opus-4-1-20250805",
         "[特价C]claude-opus-4-20250514",
@@ -381,8 +385,8 @@
         "qwen3.7-max"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-09-13T15:55:53+08:00",
-      "lastOnlineAt": "2026-09-13T15:55:53+08:00"
+      "checkedAt": "2026-09-13T21:13:33+08:00",
+      "lastOnlineAt": "2026-09-13T21:13:33+08:00"
     }
   }
 }
