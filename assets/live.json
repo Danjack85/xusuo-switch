@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-18T14:31:39+08:00",
+  "generatedAt": "2026-09-18T19:45:14+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 63,
+      "fails": 64,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-18T14:31:39+08:00",
+      "checkedAt": "2026-09-18T19:45:14+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -21,11 +21,12 @@
       "note": "",
       "fails": 0,
       "models": [
-        "claude-opus-4-8"
+        "claude-opus-4-8",
+        "replay-aigateway/claude-opus-4.8"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-18T14:31:39+08:00",
-      "lastOnlineAt": "2026-09-18T14:31:39+08:00"
+      "checkedAt": "2026-09-18T19:45:14+08:00",
+      "lastOnlineAt": "2026-09-18T19:45:14+08:00"
     },
     "GoRouter": {
       "status": "online",
@@ -33,7 +34,7 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-18T14:31:39+08:00",
+      "checkedAt": "2026-09-18T19:45:14+08:00",
       "lastOnlineAt": "2026-09-18T09:15:00+08:00"
     },
     "tabiai": {
@@ -42,8 +43,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-18T14:31:39+08:00",
-      "lastOnlineAt": "2026-09-18T14:31:39+08:00"
+      "checkedAt": "2026-09-18T19:45:14+08:00",
+      "lastOnlineAt": "2026-09-18T19:45:14+08:00"
     },
     "KKtoken": {
       "status": "online",
@@ -51,8 +52,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-18T14:31:39+08:00",
-      "lastOnlineAt": "2026-09-18T14:31:39+08:00"
+      "checkedAt": "2026-09-18T19:45:14+08:00",
+      "lastOnlineAt": "2026-09-18T19:45:14+08:00"
     },
     "Seekai": {
       "status": "online",
@@ -65,8 +66,8 @@
         "mimo-v2.5"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-18T14:31:39+08:00",
-      "lastOnlineAt": "2026-09-18T14:31:39+08:00"
+      "checkedAt": "2026-09-18T19:45:14+08:00",
+      "lastOnlineAt": "2026-09-18T19:45:14+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -205,8 +206,12 @@
         "[满血C]gemini-2.5-flash-thinking",
         "[满血C]gemini-2.5-pro",
         "[满血C]gemini-2.5-pro-thinking",
+        "[满血C]gemini-3-flash",
         "[满血C]gemini-3-pro-preview",
         "[满血C]gemini-3.1-pro-preview",
+        "[满血C]gemini-3.6-flash",
+        "[满血C]gemini-3.7-flash",
+        "[满血C]gemini-3.8-flash",
         "[满血D]gemini-2.5-pro",
         "[满血D]gemini-2.5-pro-maxthinking",
         "[满血D]gemini-3-flash-preview",
@@ -393,8 +398,8 @@
         "qwen3.7-max"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-09-18T14:31:39+08:00",
-      "lastOnlineAt": "2026-09-18T14:31:39+08:00"
+      "checkedAt": "2026-09-18T19:45:14+08:00",
+      "lastOnlineAt": "2026-09-18T19:45:14+08:00"
     }
   }
 }
