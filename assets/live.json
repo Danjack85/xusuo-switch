@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-19T10:50:29+08:00",
+  "generatedAt": "2026-09-19T15:45:08+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 69,
+      "fails": 70,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-19T10:50:29+08:00",
+      "checkedAt": "2026-09-19T15:45:08+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -21,12 +21,11 @@
       "note": "",
       "fails": 0,
       "models": [
-        "claude-opus-4-8",
-        "replay-aigateway/claude-opus-4.8"
+        "claude-opus-4-8"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-19T10:50:29+08:00",
-      "lastOnlineAt": "2026-09-19T10:50:29+08:00"
+      "checkedAt": "2026-09-19T15:45:08+08:00",
+      "lastOnlineAt": "2026-09-19T15:45:08+08:00"
     },
     "GoRouter": {
       "status": "online",
@@ -34,7 +33,7 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-19T10:50:29+08:00",
+      "checkedAt": "2026-09-19T15:45:08+08:00",
       "lastOnlineAt": "2026-09-19T07:32:19+08:00"
     },
     "tabiai": {
@@ -43,8 +42,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-19T10:50:29+08:00",
-      "lastOnlineAt": "2026-09-19T10:50:29+08:00"
+      "checkedAt": "2026-09-19T15:45:08+08:00",
+      "lastOnlineAt": "2026-09-19T15:45:08+08:00"
     },
     "KKtoken": {
       "status": "online",
@@ -52,8 +51,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-19T10:50:29+08:00",
-      "lastOnlineAt": "2026-09-19T10:50:29+08:00"
+      "checkedAt": "2026-09-19T15:45:08+08:00",
+      "lastOnlineAt": "2026-09-19T15:45:08+08:00"
     },
     "Seekai": {
       "status": "online",
@@ -64,8 +63,8 @@
         "kimi-k3"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-19T10:50:29+08:00",
-      "lastOnlineAt": "2026-09-19T10:50:29+08:00"
+      "checkedAt": "2026-09-19T15:45:08+08:00",
+      "lastOnlineAt": "2026-09-19T15:45:08+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -395,8 +394,8 @@
         "qwen3.7-max"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-09-19T10:50:29+08:00",
-      "lastOnlineAt": "2026-09-19T10:50:29+08:00"
+      "checkedAt": "2026-09-19T15:45:08+08:00",
+      "lastOnlineAt": "2026-09-19T15:45:08+08:00"
     }
   }
 }
