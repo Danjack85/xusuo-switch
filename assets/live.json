@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-22T09:23:49+08:00",
+  "generatedAt": "2026-09-22T14:43:33+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 88,
+      "fails": 89,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-22T09:23:49+08:00",
+      "checkedAt": "2026-09-22T14:43:33+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -24,25 +24,25 @@
         "claude-opus-4-8"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-22T09:23:49+08:00",
-      "lastOnlineAt": "2026-09-22T09:23:49+08:00"
+      "checkedAt": "2026-09-22T14:43:33+08:00",
+      "lastOnlineAt": "2026-09-22T14:43:33+08:00"
     },
     "GoRouter": {
       "status": "online",
-      "note": "",
+      "note": "沿用 2026-09-22T09:23:49+08:00 的在线记录",
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-22T09:23:49+08:00",
+      "checkedAt": "2026-09-22T14:43:33+08:00",
       "lastOnlineAt": "2026-09-22T09:23:49+08:00"
     },
     "tabiai": {
       "status": "unreachable",
       "note": "HTTP 521",
-      "fails": 8,
+      "fails": 9,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-22T09:23:49+08:00",
+      "checkedAt": "2026-09-22T14:43:33+08:00",
       "lastOnlineAt": "2026-09-20T14:55:18+08:00"
     },
     "KKtoken": {
@@ -51,8 +51,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-22T09:23:49+08:00",
-      "lastOnlineAt": "2026-09-22T09:23:49+08:00"
+      "checkedAt": "2026-09-22T14:43:33+08:00",
+      "lastOnlineAt": "2026-09-22T14:43:33+08:00"
     },
     "Seekai": {
       "status": "online",
@@ -63,8 +63,8 @@
         "kimi-k3"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-22T09:23:49+08:00",
-      "lastOnlineAt": "2026-09-22T09:23:49+08:00"
+      "checkedAt": "2026-09-22T14:43:33+08:00",
+      "lastOnlineAt": "2026-09-22T14:43:33+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -185,6 +185,7 @@
         "[满血A]gemini-3.1-pro-preview-searching",
         "[满血A]gemini-3.1-pro-preview-thinking-128",
         "[满血A]gemini-3.1-pro-preview-thinking-512",
+        "[满血A]gemini-3.5-flash",
         "[满血A]gemini-3.6-flash",
         "[满血A]gemini-3.7-flash",
         "[满血A]gemini-3.8-flash",
@@ -393,8 +394,8 @@
         "qwen3.7-max"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-09-22T09:23:49+08:00",
-      "lastOnlineAt": "2026-09-22T09:23:49+08:00"
+      "checkedAt": "2026-09-22T14:43:33+08:00",
+      "lastOnlineAt": "2026-09-22T14:43:33+08:00"
     }
   }
 }
