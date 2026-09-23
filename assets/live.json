@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-23T09:42:43+08:00",
+  "generatedAt": "2026-09-23T15:13:36+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 93,
+      "fails": 94,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-09-23T09:42:43+08:00",
+      "checkedAt": "2026-09-23T15:13:36+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -24,25 +24,25 @@
         "claude-opus-4-8"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-23T09:42:43+08:00",
-      "lastOnlineAt": "2026-09-23T09:42:43+08:00"
+      "checkedAt": "2026-09-23T15:13:36+08:00",
+      "lastOnlineAt": "2026-09-23T15:13:36+08:00"
     },
     "GoRouter": {
       "status": "online",
-      "note": "沿用 2026-09-23T04:26:38+08:00 的在线记录",
+      "note": "",
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-23T09:42:43+08:00",
-      "lastOnlineAt": "2026-09-23T04:26:38+08:00"
+      "checkedAt": "2026-09-23T15:13:36+08:00",
+      "lastOnlineAt": "2026-09-23T15:13:36+08:00"
     },
     "tabiai": {
       "status": "unreachable",
       "note": "HTTP 521",
-      "fails": 13,
+      "fails": 14,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-23T09:42:43+08:00",
+      "checkedAt": "2026-09-23T15:13:36+08:00",
       "lastOnlineAt": "2026-09-20T14:55:18+08:00"
     },
     "KKtoken": {
@@ -51,8 +51,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-09-23T09:42:43+08:00",
-      "lastOnlineAt": "2026-09-23T09:42:43+08:00"
+      "checkedAt": "2026-09-23T15:13:36+08:00",
+      "lastOnlineAt": "2026-09-23T15:13:36+08:00"
     },
     "Seekai": {
       "status": "online",
@@ -66,8 +66,8 @@
         "qwen3.8-flash"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-09-23T09:42:43+08:00",
-      "lastOnlineAt": "2026-09-23T09:42:43+08:00"
+      "checkedAt": "2026-09-23T15:13:36+08:00",
+      "lastOnlineAt": "2026-09-23T15:13:36+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -126,9 +126,12 @@
         "[官C]claude-sonnet-4-5",
         "[官C]claude-sonnet-4-6",
         "[官C]claude-sonnet-5",
+        "[官D]claude-opus-4-1",
+        "[官D]claude-opus-4-5",
         "[官D]claude-opus-4-6",
         "[官D]claude-opus-4-7",
         "[官D]claude-opus-4-8",
+        "[官D]claude-opus-5",
         "[官]gemini-2.5-flash-image",
         "[官]gemini-2.5-flash-image-preview",
         "[官]gemini-3-pro-image-preview",
@@ -188,7 +191,6 @@
         "[满血A]gemini-3.1-pro-preview-searching",
         "[满血A]gemini-3.1-pro-preview-thinking-128",
         "[满血A]gemini-3.1-pro-preview-thinking-512",
-        "[满血A]gemini-3.5-flash",
         "[满血A]gemini-3.6-flash",
         "[满血A]gemini-3.7-flash",
         "[满血A]gemini-3.8-flash",
@@ -289,10 +291,14 @@
         "[特价]claude-opus-4-5-20251101-thinking",
         "[特价]claude-opus-4-6-20260203",
         "[特价]claude-opus-4-6-thinking",
+        "[特价]claude-opus-5",
+        "[特价]claude-opus-5-thinking",
         "[特价]claude-sonnet-4-5-20250929",
         "[特价]claude-sonnet-4-5-20250929-thinking",
         "[特价]claude-sonnet-4-6",
         "[特价]claude-sonnet-4-6-thinking",
+        "[特价]claude-sonnet-5",
+        "[特价]claude-sonnet-5-thinking",
         "[福利]gemini-2.5-flash",
         "[福利]gemini-3-flash-preview",
         "[福利]gemini-3-flash-preview-searching",
@@ -396,8 +402,8 @@
         "qwen3.7-max"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-09-23T09:42:43+08:00",
-      "lastOnlineAt": "2026-09-23T09:42:43+08:00"
+      "checkedAt": "2026-09-23T15:13:36+08:00",
+      "lastOnlineAt": "2026-09-23T15:13:36+08:00"
     }
   }
 }
