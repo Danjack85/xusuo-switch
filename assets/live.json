@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-19T09:09:33+08:00",
+  "generatedAt": "2026-10-19T14:42:35+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 226,
+      "fails": 227,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-10-19T09:09:33+08:00",
+      "checkedAt": "2026-10-19T14:42:35+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -24,8 +24,8 @@
         "claude-opus-4-8"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-10-19T09:09:33+08:00",
-      "lastOnlineAt": "2026-10-19T09:09:33+08:00"
+      "checkedAt": "2026-10-19T14:42:35+08:00",
+      "lastOnlineAt": "2026-10-19T14:42:35+08:00"
     },
     "GoRouter": {
       "status": "online",
@@ -33,16 +33,16 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-10-19T09:09:33+08:00",
-      "lastOnlineAt": "2026-10-19T09:09:33+08:00"
+      "checkedAt": "2026-10-19T14:42:35+08:00",
+      "lastOnlineAt": "2026-10-19T14:42:35+08:00"
     },
     "tabiai": {
       "status": "unreachable",
       "note": "HTTP 500",
-      "fails": 146,
+      "fails": 147,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-10-19T09:09:33+08:00",
+      "checkedAt": "2026-10-19T14:42:35+08:00",
       "lastOnlineAt": "2026-09-20T14:55:18+08:00"
     },
     "KKtoken": {
@@ -51,8 +51,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-10-19T09:09:33+08:00",
-      "lastOnlineAt": "2026-10-19T09:09:33+08:00"
+      "checkedAt": "2026-10-19T14:42:35+08:00",
+      "lastOnlineAt": "2026-10-19T14:42:35+08:00"
     },
     "Seekai": {
       "status": "online",
@@ -62,8 +62,8 @@
         "glm-5.3-flash"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-10-19T09:09:33+08:00",
-      "lastOnlineAt": "2026-10-19T09:09:33+08:00"
+      "checkedAt": "2026-10-19T14:42:35+08:00",
+      "lastOnlineAt": "2026-10-19T14:42:35+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -186,6 +186,7 @@
         "[满血E]gemini-3.7-flash",
         "[满血E]gemini-3.8-flash",
         "[满血F-流式抗截断]gemini-3.1-pro-preview",
+        "[满血F]gemini-2.5-pro",
         "[满血F]gemini-3-flash-preview",
         "[满血F]gemini-3.1-pro-preview",
         "[满血F]gemini-3.1-pro-preview-thinking",
@@ -369,8 +370,8 @@
         "qwen3.7-max"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-10-19T09:09:33+08:00",
-      "lastOnlineAt": "2026-10-19T09:09:33+08:00"
+      "checkedAt": "2026-10-19T14:42:35+08:00",
+      "lastOnlineAt": "2026-10-19T14:42:35+08:00"
     }
   }
 }
