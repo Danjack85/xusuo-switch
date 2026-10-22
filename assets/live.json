@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-22T09:44:38+08:00",
+  "generatedAt": "2026-10-22T15:00:08+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 242,
+      "fails": 243,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-10-22T09:44:38+08:00",
+      "checkedAt": "2026-10-22T15:00:08+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -24,25 +24,25 @@
         "claude-opus-4-8"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-10-22T09:44:38+08:00",
-      "lastOnlineAt": "2026-10-22T09:44:38+08:00"
+      "checkedAt": "2026-10-22T15:00:08+08:00",
+      "lastOnlineAt": "2026-10-22T15:00:08+08:00"
     },
     "GoRouter": {
       "status": "unreachable",
       "note": "TimeoutError",
-      "fails": 3,
+      "fails": 4,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-10-22T09:44:38+08:00",
+      "checkedAt": "2026-10-22T15:00:08+08:00",
       "lastOnlineAt": "2026-10-21T13:40:13+08:00"
     },
     "tabiai": {
       "status": "unreachable",
       "note": "HTTP 500",
-      "fails": 162,
+      "fails": 163,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-10-22T09:44:38+08:00",
+      "checkedAt": "2026-10-22T15:00:08+08:00",
       "lastOnlineAt": "2026-09-20T14:55:18+08:00"
     },
     "KKtoken": {
@@ -51,8 +51,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-10-22T09:44:38+08:00",
-      "lastOnlineAt": "2026-10-22T09:44:38+08:00"
+      "checkedAt": "2026-10-22T15:00:08+08:00",
+      "lastOnlineAt": "2026-10-22T15:00:08+08:00"
     },
     "Seekai": {
       "status": "online",
@@ -62,15 +62,14 @@
         "glm-5.3-flash"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-10-22T09:44:38+08:00",
-      "lastOnlineAt": "2026-10-22T09:44:38+08:00"
+      "checkedAt": "2026-10-22T15:00:08+08:00",
+      "lastOnlineAt": "2026-10-22T15:00:08+08:00"
     },
     "哈基米": {
       "status": "online",
       "note": "",
       "fails": 0,
       "models": [
-        "[CodeA]gemini-3.1-pro-preview",
         "[CodeB]gemini-3.1-pro-preview",
         "[premium]gemini-2.5-flash",
         "[premium]gemini-2.5-pro",
@@ -143,14 +142,7 @@
         "[满血A]gemini-2.5-flash",
         "[满血A]gemini-2.5-flash-thinking",
         "[满血A]gemini-3-flash-preview",
-        "[满血A]gemini-3-pro-preview",
-        "[满血A]gemini-3-pro-preview-maxthinking",
-        "[满血A]gemini-3-pro-preview-searching",
-        "[满血A]gemini-3-pro-preview-thinking-128",
-        "[满血A]gemini-3-pro-preview-thinking-512",
         "[满血A]gemini-3.1-pro-preview",
-        "[满血A]gemini-3.1-pro-preview-maxthinking",
-        "[满血A]gemini-3.1-pro-preview-searching",
         "[满血A]gemini-3.1-pro-preview-thinking-128",
         "[满血A]gemini-3.1-pro-preview-thinking-512",
         "[满血A]gemini-3.5-flash",
@@ -185,6 +177,7 @@
         "[满血E]gemini-3.6-flash",
         "[满血E]gemini-3.7-flash",
         "[满血E]gemini-3.8-flash",
+        "[满血E]gemini-4-argon",
         "[满血F-流式抗截断]gemini-3.1-pro-preview",
         "[满血F]gemini-2.5-pro",
         "[满血F]gemini-3-flash-preview",
@@ -313,9 +306,6 @@
         "deepseek-v4.1-flash",
         "gemini-3.1-pro-preview",
         "gemini-nano-banana-2.1-c",
-        "glm-4.6",
-        "glm-4.7",
-        "glm-5",
         "glm-5.1",
         "glm-5.2",
         "glm-5.3",
@@ -363,8 +353,8 @@
         "qwen3.7-text-rerank"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-10-22T09:44:38+08:00",
-      "lastOnlineAt": "2026-10-22T09:44:38+08:00"
+      "checkedAt": "2026-10-22T15:00:08+08:00",
+      "lastOnlineAt": "2026-10-22T15:00:08+08:00"
     }
   }
 }
