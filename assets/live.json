@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-26T08:57:09+08:00",
+  "generatedAt": "2026-10-26T14:03:56+08:00",
   "stations": {
     "AgentRouter": {
       "status": "blocked",
       "note": "status 200 非JSON: <!doctype html> <meta charset=\"UTF-8\"> <",
-      "fails": 267,
+      "fails": 268,
       "models": [
         "claude-opus-4-8",
         "claude-opus-5",
@@ -13,7 +13,7 @@
         "gpt-5.6-sol"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-10-26T08:57:09+08:00",
+      "checkedAt": "2026-10-26T14:03:56+08:00",
       "lastOnlineAt": "2026-09-08T13:28:46+08:00"
     },
     "justwoker": {
@@ -24,25 +24,25 @@
         "claude-opus-4-8"
       ],
       "modelsSrc": "",
-      "checkedAt": "2026-10-26T08:57:09+08:00",
-      "lastOnlineAt": "2026-10-26T08:57:09+08:00"
+      "checkedAt": "2026-10-26T14:03:56+08:00",
+      "lastOnlineAt": "2026-10-26T14:03:56+08:00"
     },
     "GoRouter": {
       "status": "unreachable",
       "note": "TimeoutError",
-      "fails": 4,
+      "fails": 5,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-10-26T08:57:09+08:00",
+      "checkedAt": "2026-10-26T14:03:56+08:00",
       "lastOnlineAt": "2026-10-25T13:11:59+08:00"
     },
     "tabiai": {
       "status": "unreachable",
       "note": "HTTP 500",
-      "fails": 187,
+      "fails": 188,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-10-26T08:57:09+08:00",
+      "checkedAt": "2026-10-26T14:03:56+08:00",
       "lastOnlineAt": "2026-09-20T14:55:18+08:00"
     },
     "KKtoken": {
@@ -51,8 +51,8 @@
       "fails": 0,
       "models": null,
       "modelsSrc": "",
-      "checkedAt": "2026-10-26T08:57:09+08:00",
-      "lastOnlineAt": "2026-10-26T08:57:09+08:00"
+      "checkedAt": "2026-10-26T14:03:56+08:00",
+      "lastOnlineAt": "2026-10-26T14:03:56+08:00"
     },
     "Seekai": {
       "status": "online",
@@ -62,8 +62,8 @@
         "glm-5.3-flash"
       ],
       "modelsSrc": "v1/models",
-      "checkedAt": "2026-10-26T08:57:09+08:00",
-      "lastOnlineAt": "2026-10-26T08:57:09+08:00"
+      "checkedAt": "2026-10-26T14:03:56+08:00",
+      "lastOnlineAt": "2026-10-26T14:03:56+08:00"
     },
     "哈基米": {
       "status": "online",
@@ -348,8 +348,8 @@
         "qwen3.7-text-rerank"
       ],
       "modelsSrc": "public-pricing",
-      "checkedAt": "2026-10-26T08:57:09+08:00",
-      "lastOnlineAt": "2026-10-26T08:57:09+08:00"
+      "checkedAt": "2026-10-26T14:03:56+08:00",
+      "lastOnlineAt": "2026-10-26T14:03:56+08:00"
     }
   }
 }
